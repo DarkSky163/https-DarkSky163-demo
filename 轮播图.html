@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <!-- css代码 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 800px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .list {
+            width: 800px;
+            height: 400px;
+            list-style: none;
+            /*   去掉li的默认样式 */
+            position: relative;
+        }
+
+        .item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size: 50px;
+            color: white;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        /* 设置li的背景色 */
+        /* 用:nth-child选择器分别给每个li添加背景颜色 */
+        .item:nth-child(1) {
+            background-color: black;
+        }
+
+        .item:nth-child(2) {
+            background-color: violet;
+        }
+
+        .item:nth-child(3) {
+            background-color: red;
+        }
+
+        .item:nth-child(4) {
+            background-color: green;
+        }
+
+        .item:nth-child(5) {
+            background-color: blue;
+        }
+
+        /* 给点击按钮设置样式 */
+        .btn {
+            width: 50px;
+            height: 100px;
+            position: absolute;
+            top: 150px;
+            font-size: 40px;
+            z-index: 100;
+        }
+
+        #left {
+            left: 0px;
+        }
+
+        #right {
+            right: 0px;
+        }
+
+        .item.active {
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .littles {
+            list-style: none;
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            z-index: 1000;
+        }
+
+        .little {
+            width: 10px;
+            height: 10px;
+            border: 1px solid white;
+            border-radius: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            float: left;
+            margin-right: 14px;
+
+            cursor: pointer;
+            /* 展示小手 */
+        }
+
+        .little.active {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- html代码 -->
+    <!-- 第一步：先设置一个容器 -->
+    <div id="box">
+        <!-- 设置需要轮播的模块 -->
+        <ul class="list">
+            <li class="item active">0</li>
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+            <li class="item">4</li>
+        </ul>
+        <ul class="littles">
+
+            <!-- data-index  在html5中的标签存数据的方法 -->
+            <li class="little active" data-index='0'></li>
+            <li class="little" data-index='1'></li>
+            <li class="little" data-index='2'></li>
+            <li class="little" data-index='3'></li>
+            <li class="little" data-index='4'></li>
+        </ul>
+        <!-- 设置点击按钮，类型为button -->
+        <button type="button" class="btn" id="left">&lt;</button>
+                <button type="button" class="btn" id="right">&gt;</button>
+    </div>
+
+
+    <!-- js代码 -->
+    <script>
+        // 首先获取到全部的li ，以及需要点击的按钮
+        var items = document.getElementsByClassName('item'); // 图片
+        var littleArr = document.getElementsByClassName('little')  // 点
+        var leftBtn = document.getElementById('left');  // 
+        var rightBtn = document.getElementById('right');
+
+        var Box = document.getElementById('box')
+
+        // 在js编程当中index为索引，索引值从0开始
+        var index = 0;  // index表示第几张在展示，表示第index张图片具有active这个类
+
+        // 第几个点在展示
+
+        // 把li中的active类清除掉
+        var clearActive = function () {
+            // 表示每个li的类名为item
+            for (var i = 0; i < items.length; i++) {
+                items[i].className = 'item'
+            }
+
+            // 表示每个点的类名为little
+            for (var i = 0; i < littleArr.length; i++) {
+                littleArr[i].className = 'little'
+            }
+        }
+
+        // 生命一个函数，这个goindex函数需要实现当index为几的时候，第几个li就展示，也就是说这个li就有active这个类名
+        var goIndex = function () {
+            clearActive(); //在添加active类之前的时候，把所有的li中的active去除掉
+            items[index].className = "item active"
+            littleArr[index].className = "little active"
+            // console.log(index);
+        }
+
+        // 这个函数表示要下一张图片展示  
+        var goNext = function () {
+            if (index < 4) {
+                index++;
+            } else {
+                index = 0
+            }
+            goIndex();
+        }
+        // 这个函数表示要上一张图片展示  
+        var goUp = function () {
+            if (index == 0) {
+                index = 4;
+            } else {
+                index--;
+            }
+            goIndex();
+        }
+
+        // 给rigth点击按钮，添加点击事件，调用匿名函数
+        rightBtn.addEventListener('click', function () {
+            goNext();/*  当点击第五次的时候，会出现 items[index] is undefined  undefined：未定义*/
+
+
+        })
+
+
+        leftBtn.addEventListener('click', function () {
+            goUp();/*  当点击第五次的时候，会出现 items[index] is undefined  undefined：未定义*/
+
+        })
+
+        Box.addEventListener('mouseover', function () {
+
+            clearInterval(timer)
+            timer = null
+
+        })
+        Box.addEventListener('mouseout', function () {
+            timer = setInterval(() => {
+                goNext()
+            }, 1000);
+
+        })
+
+        for (var i = 0; i < littleArr.length; i++) {
+            littleArr[i].addEventListener('click', function () {
+                console.log("点击啦");
+
+                //  getAttribute() 方法通过名称获取属性的值。
+                var point = this.getAttribute('data-index')
+                console.log(point);
+                index = point;
+                goIndex();
+            })
+
+        }
+
+
+
+        var timer = setInterval(() => {
+            this.goNext()
+        }, 1000);
+
+
+    </script>
+</body>
+
+</html>
