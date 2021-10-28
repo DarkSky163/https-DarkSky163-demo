@@ -133,7 +133,7 @@
         </ul>
         <!-- 设置点击按钮，类型为button -->
         <button type="button" class="btn" id="left">&lt;</button>
-                <button type="button" class="btn" id="right">&gt;</button>
+        <button type="button" class="btn" id="right">&gt;</button>
     </div>
 
 
@@ -165,7 +165,7 @@
             }
         }
 
-        // 生命一个函数，这个goindex函数需要实现当index为几的时候，第几个li就展示，也就是说这个li就有active这个类名
+        // 声明一个函数，这个goindex函数需要实现当index为几的时候，第几个li就展示，也就是说这个li就有active这个类名
         var goIndex = function () {
             clearActive(); //在添加active类之前的时候，把所有的li中的active去除掉
             items[index].className = "item active"
@@ -196,9 +196,7 @@
         rightBtn.addEventListener('click', function () {
             goNext();/*  当点击第五次的时候，会出现 items[index] is undefined  undefined：未定义*/
 
-
         })
-
 
         leftBtn.addEventListener('click', function () {
             goUp();/*  当点击第五次的时候，会出现 items[index] is undefined  undefined：未定义*/
@@ -230,8 +228,6 @@
             })
 
         }
-
-
 
         var timer = setInterval(() => {
             this.goNext()

@@ -1,0 +1,1459 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    color: #333;
+    background-color: #fff;
+    min-width: 1226px;
+}
+ul{
+    /* overflow: hidden; */
+    list-style: none;
+    /* font-size: 16px; */
+}
+li:hover{
+    color: white !important;
+}
+img{
+    border: 0;
+}
+a{
+    color: #757575;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+i{
+    font-style:normal
+}
+#app {
+    width: 100%;
+}
+/* 购物车 */
+.icon-gouwuche{ 
+    font-weight: 600;
+}
+
+.header .topBg {
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+.header .topBg .links{
+    background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/34d686bd9e4e3dac4eae9dd62607928b.jpeg?w=5120&h=240);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: auto 120px;
+    /* 用于定义块级元素中第一个内容行的缩进。这最常用于建立一个“标签页”效果。允许指定负值，这会产生一种“悬挂缩进”的效果。 */
+    text-indent: -9999px;
+}
+.header .topBar{
+    position: relative;
+    z-index: 30;
+    height: 40px;
+    font-size: 12px;
+    color: #b0b0b0;
+    background: #333;
+}
+.header .topBar .container{
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container::after{
+    clear: both;
+}
+.container::after, .container::before {
+    content: " ";
+    display: table;
+}
+.header .topBar .container .topbar-nav{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.header .topBar .container .topbar-nav li{
+    display: inline-block;
+    color: #b0b0b0;
+    line-height:40px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.header .topBar .container .topbar-nav  span{
+    color: #434343;
+}
+.appcode{
+    position: absolute;
+    top: 40px;
+    left: 48%;
+    width: 124px;
+    height: 0;
+    background: #fff;
+    margin-left: -55px;
+    -webkit-box-shadow: #aaa 0 1px 5px;
+    box-shadow: 0 1px 5px #aaa;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+    overflow: hidden;
+    -webkit-transition: height .3s;
+    transition: height .3s;
+}
+.active::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -28px;
+    border-width: 0 8px 8px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) #fff;
+}
+.appcode img{
+    display: block;
+    margin: 18px auto 12px;
+}
+.appcode:hover:nth-child(1){
+    height: 150px;
+}
+.header .topBar .container .top-cart{
+    position: relative;
+    float: right;
+    width: 120px;
+    height: 40px;
+    margin-left: 15px;
+    transition:  all 0.2s;
+    font-size: 12px;
+}
+.header .topBar .container .top-cart #cart-btn{
+    position: relative;
+    z-index: 32;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #b0b0b0;
+    background: #424242;
+}
+.cart-menu{
+
+    position: absolute;
+    right: 0;
+    top: 40px;
+    z-index: 31;
+    width: 316px;
+    height: 0;
+    color: #424242;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    overflow: hidden;
+    -webkit-transition: height .3s;
+    transition: height .3s;
+}
+.menu-content{
+    padding: 20px 20px 0;
+}
+.msg{
+    display: none;
+    font-size: 12px;
+    padding: 20px 0 20px;
+    margin: 0 20px 20px;
+    text-align: center;
+    transition: all 1s;
+}
+.topbar-info{
+    position: relative;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+}
+.info{
+    color: #b0b0b0;
+    line-height: 40px;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.topbar-info span{
+    color: #434343;
+}
+
+.header-logo{
+    float: left;
+    width: 62px;
+    margin-top: 22px;
+}
+.header-logo .logo{
+    background: url(https://s02.mifile.cn/assets/static/image/logo-mi2.png) ;
+    background-repeat: no-repeat;
+    background-size: 56px;
+}
+.ir{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
+    content: "";
+    transform-origin: 50% 50%;
+}
+.topHeader{
+    position: relative;
+    z-index: 20;
+    height: 100px;
+}
+.topHeader .logo{
+    float: left;
+    width: 62px;
+    margin-top: 22px;
+}
+/* .topHeader .logo::after{
+    opacity: 0;
+    margin-left: -55px;
+    
+} */
+.topHeader .container{
+    position: relative;
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.link-category{
+    /* visibility 属性规定元素是否可见。
+        visible 默认值，元素是可见的。
+        hidden  元素是不可见的。
+        collapse  当在表格元素种使用时，此值可删除一行或一列，
+                  但是它不会影响表格的布局。被行或列占据的空间会留给其他内容使用。
+                  如果此值被用在其他的元素上，会呈现“hidden”。
+        inherit  规定应该从父元素继承visibility 属性的值
+    */
+    visibility: hidden;
+    display: block;
+    padding: 26px 0 38px;
+    text-align: right;
+    color: #333;
+}
+.header-nav{
+    float: left;
+    width: 850px;
+}
+.nav-list{
+    position: relative;
+    z-index: 10;
+    float: left;
+    width: 1100px;
+    height: 88px;
+    margin: 0;
+    padding: 12px 0 0 30px;
+    list-style-type: none;
+    font-size: 16px;
+}
+.nav-item{
+    float: left ;
+}
+.nav-item .link .text:hover{
+    color: orangered;
+}
+.link{
+    display: block;
+    padding: 26px 10px 38px;
+    color: #333;
+}
+.children-list li:hover {
+    color: #ff6700;
+}
+.text{
+    color: #333;
+}
+.children-list .text{
+    float: left;
+    /* width: 172px; */
+    line-height: 40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.nav-category{
+    position: relative;
+    width: 127px;
+    float: left;
+    padding-right: 15px;
+}
+.header-search{
+    float: right;
+    width: 296px;
+    margin-top: 25px;
+}
+.search-form{
+    position: relative;
+    width: 296px;
+    height: 50px;
+    z-index: 20;
+}
+
+/* 搜索下拉列表 */
+#ccc{
+    position: absolute;
+    left: 0;
+    top: 50px;
+    z-index: 20;
+    width: 243px;
+    border: 1px solid #ff6700;
+    border-top: 0;
+    background: #fff;
+}
+.hide{
+    display: none !important;
+}
+.data-key{
+    color: #424242 !important;
+    position: relative;
+    display: block;
+    padding: 6px 15px;
+    font-size: 12px;
+    color: #424242;
+}
+.data-key:hover{
+    color: #424242 !important;
+    background-color: #fafafa;
+}
+.result-list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+/* .search-form:nth-child(n):hover{
+    border: 1px solid #ccc;
+} */
+.search-text{
+    position: absolute;
+    top: 0;
+    border: 1px solid #eee;
+    transition: all 0.2s;
+    right: 51px;
+    z-index: 1;
+    width: 223px;
+    height: 48px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 48px;
+    box-sizing: border-box;
+}
+
+.search-btn{
+    right: 0;
+    z-index: 2;
+    width: 52px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 24px;
+    background: #fff;
+    color: #616161;
+    position: absolute;
+    top: 0;
+    border: 1px solid #eee;
+    /* outline （轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。 */
+    outline: 0;
+    transition: all .2s;
+    font-weight: 600;
+}
+.search-btn:hover{
+    color: white;
+    background-color: orangered;
+}
+input:focus{
+    outline: none;
+    border-color:#eee;
+    box-shadow:none;
+}
+input[type="search"]{
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+/* button,html,input{
+    -webkit-appearance: button;
+    cursor: pointer;
+} */
+li{
+    cursor: pointer;
+}
+
+/* 侧边点击选项 */
+.site-category{
+    position: absolute;
+    left: -92px;
+    z-index: 21;
+    width: 234px;
+    height: 460px;
+    font-size: 14px;
+}
+.header-nav-menu{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: 24;
+    width: 100%;
+    height: 0;
+    background: #fff;
+    overflow: hidden;
+    transition: box-shadow .2s,height .3s,-webkit-box-shadow .2s;
+}
+
+/* 手机展开 */
+.children-list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 12px;
+}
+.children-list .first::before{
+    display: none;
+}
+.children-list li{
+    position: relative;
+    float: left;
+    width: 265px;
+    padding: 20px 12px 0;
+    text-align: center;
+    font-size: 14px;
+}
+.children-list .lis::before{
+    position: absolute;
+    left: 0;
+    top: 35px;
+    z-index: 1;
+    width: 2px;
+    height: 100px;
+    content: "";
+    background-color: #e0e0e0;
+}
+.figure-thumb{
+    width: 160px;
+    height: 110px;
+    margin: 0 auto 16px;
+    text-align: center;
+}
+.title{
+    color: #333;
+    margin: 0;
+    line-height: 20px;
+}
+.price{
+    margin: 0;
+    line-height: 20px;
+    color: #ff6700;
+}
+
+/* 侧边导航 */
+.left-btn{
+    height: 420px;
+    border: 0;
+    color: #fff;
+    background: rgba(105,101,101,.6);
+    margin: 0;
+    padding: 20px 0;
+    list-style-type: none;
+    font-size: 14px;
+}
+.left-btn .title{
+    color: #fff;
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    height: 42px;
+    line-height: 42px;
+}
+.left-btn .title .iconfont{
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 16px;
+    line-height: 16px;
+    color: #e0e0e0;
+}
+.category-item:hover{
+    background-color: #ff6700;
+}
+.left-btn .category-item::before{
+    background-color:white !important;
+}
+.category-item:hover .children-boy4{
+    display: block;
+}
+.children-boy4{
+    width: 992px;
+}
+/* 侧边导航展开 */
+.children{
+    display: none;
+    position: absolute;
+    left: 234px;
+    top: 0;
+    z-index: 24;
+    height: 458px;
+    border: 1px solid #e0e0e0;
+    border-left: 0;
+    background: #fff;
+    box-shadow:  0 8px 16px rgba(0, 0, 0, 0.18);
+    background-color: #fff;
+}
+.children .children-list{
+    width: 248px;
+    float: left;
+    height: 458px;
+    margin: 0;
+    padding: 2px 0;
+    list-style: none;
+}
+.children .children-list li .link{
+    display: block;
+    padding: 8px 20px;
+    line-height: 40px;
+    color: #333;
+    transition:  color .2s;
+}
+.children .children-list li .link .thumb{
+    float: left;
+    margin-right: 12px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #333;
+}
+.children .children-list li .link .thumb .text{
+    float: left;
+    width: 172px;
+    line-height: 40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+}
+
+
+
+/* 轮播图 */
+.container{
+    position: relative;
+    z-index: 10;
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container::after{
+    clear: both;
+}
+.container::after,.container::before{
+    content: "";
+    display: table;
+}
+.home-hero{
+    position: relative;
+    margin-bottom: 26px;
+}
+
+/* 轮播 */
+.swiperBox {
+    height: 460px;
+    position: relative;
+    list-style: none;
+    z-index: 1;
+}
+
+.list {
+    width: 800px;
+    height: 400px;
+    list-style: none;
+    /*   去掉li的默认样式 */
+    position: relative;
+}
+
+.item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+    color: white;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.item img{
+    display: block;
+    width: 1226px;
+    height: 460px;
+}
+
+/* 设置li的背景色 */
+/* 用:nth-child选择器分别给每个li添加背景颜色 */
+/* .item:nth-child(1) {
+    background-color: black;
+}
+
+.item:nth-child(2) {
+    background-color: violet;
+}
+
+.item:nth-child(3) {
+    background-color: red;
+}
+
+.item:nth-child(4) {
+    background-color: green;
+}
+
+.item:nth-child(5) {
+    background-color: blue;
+} */
+
+/* 给点击按钮设置样式 */
+.btn {
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    top: 150px;
+    font-size: 40px;
+    z-index: 100;
+    border: none;
+    color: #ccc;
+    background: rgba(0, 0, 0, 0);
+}
+.btn:hover{
+    color: #fff;
+    background: rgba(0, 0, 0, .2);
+
+}
+
+#left {
+    left: 234px;
+}
+
+#right {
+    right: 0px;
+}
+
+.item.actives {
+    opacity: 1;
+    z-index: 10;
+}
+
+.littles {
+    list-style: none;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    z-index: 1000;
+}
+
+.little {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    float: left;
+    margin-right: 14px;
+
+    cursor: pointer;
+    /* 展示小手 */
+}
+
+.little.actives {
+    background-color: rgba(225, 225, 225, 0.2);
+}
+
+/* 轮播图下部 */
+.dem-left{
+    width: 234px;
+    float: left;
+    margin-left: 14px;
+    min-height: 1px;
+}
+
+.row{
+    margin-top: 14px;
+    margin-left: -14px;
+}
+.row::after{
+    clear: both;
+}
+.row::after,.row::before{
+    content: "";
+    display: table;
+}
+.dem-right{
+    width: 879px;
+    float: left;
+    margin-left: 14px;
+    min-height: 1px;
+}
+.clearfix::after{
+    clear: both;
+}
+.clearfix::after,.clearfix::before{
+    content: "";
+    display: table;
+}
+.home-channel-list{
+    margin: 0;
+    padding: 3px;
+    list-style-type: none;
+    font-size: 12px;
+    text-align: center;
+    background: #5f5750;
+}
+.home-channel-list li{
+    position: relative;
+    float: left;
+    width: 70px;
+    height: 82px;
+    padding: 0 3px;    
+}
+.home-channel-list li::after{
+    top: 6px;
+    left: 0;
+    width: 1px;
+    height: 70px;
+}
+.home-channel-list li::after,.home-channel-list li::before{
+    position: absolute;
+    content: "";
+    background: #665e57;
+}
+.home-channel-list li::before{
+    top: -1px;
+    left: 6px;
+    width: 64px;
+    height: 1px;
+}
+.home-channel-list li img{
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 4px;
+    border: 0;
+}
+.home-channel-list li a{
+    display: block;
+    padding-top: 18px;
+    text-overflow: ellipsis;
+    color: #fff;
+    opacity: .7;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+    text-decoration: none;
+}
+
+.home-promo-list{
+    width: 978px; 
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.home-promo-list li.first{
+    margin-left: 0;
+    float: left;
+    width: 316px;
+    height: 170px;
+}
+.home-promo-list li{
+    float: left;
+    width: 316px;
+    height: 170px;
+    margin-left: 15px;
+    transition: box-shadow .2s linear,-webkit-box-shadow .2s linear;
+}
+.home-promo-list li:hover{
+    box-shadow: 0px 5px 20px #c5c5c5;
+}
+.home-promo-list li a{
+    display: block;
+    width: 170px;
+    background: url(https://i1.mifile.cn/f/i/2014/cn/placeholder-80.png) no-repeat 50%;
+}
+.home-promo-list img{
+    display: block;
+    width: 316px;
+    height: 170px;
+}
+
+/* center */
+.center-box{
+    padding-top: 4px;
+    padding-bottom: 12px;
+}
+.center-bg{
+    background: #f5f5f5;
+}
+.container::after{
+    clear: both;
+}
+.container::after,.container::before{
+    content: "";
+    display: table;
+}
+.container{
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.home-flashsale{
+    margin-bottom: 22px;
+    position: relative;
+}
+.xm-plain-box .boxh{
+    position: relative;
+    height: 58px;
+}
+
+.boxh .title{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+}
+.boxb-left{
+    height: 300px;
+    padding-top: 39px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    background: #f1eded;
+    text-align: center;
+}
+.span4{
+    width: 234px;
+    float: left;
+    margin-left: 14px;
+    min-height: 1px;
+}
+.item4{
+    border-top-color: #e53935;
+}
+
+
+/* 计时器 */
+.countdown{
+    width: 168px;
+    margin: 28px auto 0;
+}
+.countdown span{
+    width: 30px;
+    height: 30px;
+    background: #605751;
+    color: #fff;
+    font-size: 22px;
+    line-height: 34px;
+    float: left;
+}
+.countdown i{
+    width: 15px;
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    color: #605751;
+    font-size: 24px;
+    font-style: normal;
+}
+
+/* 倒计时轮播 */
+.span6{
+    margin-left: 14px !important;
+    min-width: 1px;
+    width: 978px;
+}
+.swiper-container{
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+.swiper-container ul{
+    margin: 0;
+    padding: 0;
+    height: 340px;
+}
+.swiper-wrapper{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    box-sizing: border-box;
+    /* 把鼠标指针放到 div 元素上，会产生带有平滑改变元素宽度的过渡效果： */
+    transition-property: transform;
+}
+
+.flow{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.flashsale-list{
+    overflow: visible;
+}
+.flashsale-list .swiper-wrapper li{
+    display: inline-block;
+    border-top-width: 1px;
+    border-top-style: solid;
+    text-align: center;
+    background: #fff;
+    transition: all .6s;
+    position: relative;
+    list-style: none;
+    width: 234px;
+    height: 340.8px;
+    left: 0;
+    top: 0;
+}
+.rainbow-item-1,.rainbow-item-4{
+    border-top-color: #e53935;
+}
+.rainbow-item-2,.rainbow-item-6{
+    border-top-color: #00c0a5;
+}
+.rainbow-item-3,.rainbow-item-7{
+    border-top-color: #ffac13;
+}
+.rainbow-item-4,.rainbow-item-8{
+    border-top-color: #83c44e;
+}
+.rainbow-item-5,.rainbow-item-9{
+    border-top-color: #2196f3;
+}
+.rainbow-item-10,.rainbow-item-14{
+    border-top-color: #e53935;
+}
+
+.swiper-slide{
+    width: 234px;
+    margin-right: 14px;
+    flex-shrink: 0;
+    height: 100%;
+    text-align: center;
+    float: left;
+}
+.flashsale-list li a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    /* background: rgba(0, 0, 0, .02); */
+}
+.flashsale-list li a{
+    display: block;
+    height: 300px;
+    padding-top: 39px;
+    position: relative;
+}
+.flashsale-list .thumb{
+    display: block;
+    width: 160px;
+    margin: 0 auto 22px;
+}
+.flashsale-list .thumb img{
+    width: 160px;
+    height: 160px;
+}
+.flashsale-list .title{
+    margin: 0 20px 3px;
+    font-size: 14px;
+    font-weight: 400;
+    /* text-overflow 属性规定当文本溢出显示省略符号来代表被修剪的文本。 */
+    text-overflow: ellipsis;
+    color: #212121;
+    overflow: hidden;
+    /* 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止 */
+    white-space: nowrap;
+}
+ .content .desc{
+    height: 18px;
+    margin: 0 20px 12px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    color: #b0b0b0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.flashsale-list .price{
+    margin: 0;
+    color: #ff6709;
+}
+.flashsale-list .price del{
+    color: #b0b0b0;
+}
+
+/* banner */
+.homebanner{
+    height: 120px;
+    margin: 22px 0;
+    overflow: hidden;
+}
+.banner-img{
+    width: 1226px;
+    height: 120px;
+}
+
+/* 手机 */
+.home-brick-box{
+    margin-bottom: 8px;
+}
+.home-brick-box .brick-list{
+    margin: 0 0 -14px -14px;
+}
+
+.brick-list{
+    margin: 0 0 -14px -14px;
+    /* height: 614px; */
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.brick-item{
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 234px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+    background: #fff;
+    transition: all .2s linear;
+}
+.brick-m2{
+    height: 300px;
+    padding: 0;
+    background: #fff;
+}
+.brick-m2 a{
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+/* .brick-m2 .figure-img{
+    width: 160px;
+    height: 160px;
+    
+} */
+.brick-m2 .figure-img img{
+    width: 160px;
+    height: 160px;
+}
+.ll{
+    height: 614px;
+}
+.brick-list a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.brick-list .ll img{
+    height: 614px;
+}
+.brick-list img{
+    width: 234px;
+}
+.content {
+    text-align: center;
+}
+.brick-m2 .thumb{
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 18px;
+}
+.brick-m2 a{
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px 0 !important;
+}
+.brick-m2:hover,.brick-s:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px rgba(161, 148, 148, 0.8);
+}
+.ll:hover,.mm:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px rgba(161, 148, 148, 0.8);
+}
+.mm{
+    height: 300px;
+    padding: 0;
+}
+.mm img{
+    width: 234px;
+    height: 300px;
+}
+.brick-s{
+    height: 93px;
+    padding-top: 50px;
+}
+.brick-s a{
+    height: 93px;
+}
+.brick-s .thumb{
+    position: absolute;
+    right: 20px;
+    top: 32px;
+    width: 80px;
+    height: 80px;
+   
+}
+.brick-s .thumb img{
+    width: 80px;
+    height: 80px;
+}
+ .brick-s .cc{
+    color: #333;
+    margin: -10px 110px 5px 30px;
+    font-size: 14px;
+    font-weight: 400;
+    width: 100px;
+    white-space: normal;
+    text-align: left !important;
+}
+.brick-s .big{
+    font-size: 18px;
+}
+.brick-s .price{
+    margin: 0 110px 0 30px;
+    font-size: 12px;
+    color: #ff6700;
+    text-align: left !important;
+}
+.brick-s a{
+    padding-top: 0 !important;
+}
+.brick-s .thumb{
+    top: 0;
+}
+.brick-s .content .desc{
+    height: 18px;
+    margin: 0 30px 12px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    color: #b0b0b0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left !important;
+}
+.brick-s .content .icon-jiantou{
+    font-size: 56px;
+    position: absolute;
+    right: 30px;
+    top: -12px;
+    color: #ff6700;
+}
+
+/* 视频 */
+.video-item{
+    position: relative;
+    float: left;
+    width: 296px;
+    height: 285px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+    text-align: center;
+    background: #fff;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}
+.video-item:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px rgba(161, 148, 148, 0.8);
+}
+
+.video-item .figure-img{
+    position: relative;
+    width: 296px;
+    height: 180px;
+    margin: 0 0 28px;
+}
+.video-item .figure-img img{
+    width: 296px;
+    height: 180px;
+}
+.video-item  .title{
+    margin: 0 14px 6px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: #333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.video-item .play{
+    position: absolute;
+    left: 30px;
+    top: 66%;
+}
+.video-item .play .icon-bofang{
+    font-size: 36px;
+    color: #fff;
+}
+.play:hover .icon-bofang{
+    color: #ff6700 !important ;
+}
+
+/* footer */
+
+.bottom-box .footer .footer-service{
+    padding: 27px 0;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+}
+.bottom-box .footer .footer-links{
+    padding: 40px 0;
+}
+
+.bottom-box .bottom-info{
+    padding: 30px 0;
+    font-size: 12px;
+    background: #fafafa;
+}
+.bottom-box .list-service{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.bottom-box .list-service li:first-child{
+    border-left: 0;
+}
+.bottom-box .list-service li{
+    float: left;
+    width: 19.8%;
+    height: 25px;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+}
+.bottom-box .list-service a{
+    color: #616161;
+    transition: color .2s;
+}
+.bottom-box .list-service a:hover{
+    color: #ff6700;
+}
+.bottom-box .list-service em{
+    margin-right: 6px;
+    font-size: 24px;
+    line-height: 24px;
+/* vertical-align 该属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐。
+    允许指定负长度值和百分比值。这会使元素降低而不是升高。
+    在表单元格中，这个属性会设置单元格框中的单元格内容的对齐方式。
+ */
+    vertical-align: -4px;
+}
+
+.bottom-box .footer-links{
+    padding: 40px 0;
+}
+.bottom-box .footer-links .col-links{
+    float: left;
+    width: 160px;
+    margin: 0;
+}
+.bottom-box .footer-links .col-links dt{
+    margin: -1px 0 26px;
+    font-size: 14px;
+    line-height: 1.25;
+    color: #424242;
+}
+.bottom-box .footer-links .col-links dd{
+    margin: 10px 0 0;
+    font-size: 12px;
+}
+.bottom-box .footer-links .col-links dd a:hover{
+    color: #ff6700;
+}
+.bottom-box .footer-links .col-links a{
+    color: #757575;
+}
+.bottom-box .footer-links .col-contact{
+    float: right;
+    width: 251px;
+    border-left: 1px solid #e0e0e0;
+    text-align: center;
+    color: #616161;
+}
+.bottom-box .footer-links .col-contact .phone{
+    font-size: 22px;
+    line-height: 1;
+    color: #ff6700;
+}
+.bottom-box .footer-links .col-contact p{
+    margin: 0 0 5px 0 ;
+    font-size: 12px;
+    text-align: center;
+    color: #616161;
+}
+.bottom-box .footer-links .col-contact .primary{
+    border-color: #ff6700 !important;
+    background: #fff;
+    color: #ff6700;
+}
+.bottom-box .footer-links .col-contact .primary em{
+    font-style: normal;
+}
+.bottom-box .footer-links .col-contact .small{
+    width: 118px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+}
+.bottom-box .footer-links .col-contact .btn2{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #b0b0b0;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+.bottom-box .footer-links .col-contact .follow{
+    font-size: 12px;
+    margin-top: 10px;
+    position: relative;
+}
+.bottom-box .footer-links .col-contact .follow .wb{
+    background: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wb.png) 50% 0 no-repeat;
+    background-size: auto;
+    background-size: cover;
+}   
+.bottom-box .footer-links .col-contact .follow a{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 6px;
+    margin-top: -3px;
+}
+.bottom-box .footer-links .col-contact .follow .wx{
+    background: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wx.png) 50% 0 no-repeat;
+    background-size: auto;
+    background-size: cover;
+}
+.bottom-box .footer-links .col-contact .follow img{
+    width: 126px;
+    height: 126px;
+    z-index: 2;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    display: none;
+}
+
+.info-text{
+    color: #b0b0b0;
+    padding-left: 67px;
+}
+
+.bottom-box .bottom-info .container{
+    position: relative;
+}
+.bottom-box .bottom-info .logo{
+    width: 56px;
+    height: 56px;
+    background: url(http://s02.mifile.cn/assets/static/image/logo-mi2.png) no-repeat;
+    background-size: auto;
+    background-size: 56px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ir{
+    display: block;
+    text-align: left;
+    text-indent: -9999em;
+    overflow: hidden;
+}
+.bottom-box .bottom-info .text{
+    color: #b0b0b0;
+    padding-left: 67px;
+}
+.bottom-box .bottom-info .text p{
+    margin: 0;
+    line-height: 18px;
+}
+.grow,.sep{
+    color: #b0b0b0 ;
+}
+.grow a{
+    color: #b0b0b0 ;
+}
+.bottom-box .bottom-info .text .sites a{
+    color: #757575;
+}
+.bottom-box .bottom-info .text .sites .sep{
+    margin: 0;
+}
+.sep{
+    font-family: sans-serif;
+}
+.bottom-box .bottom-info .info-links{
+    height: 28px;
+    margin: 4px 0 15px;
+    padding-left: 67px;
+}
+.bottom-box .bottom-info .slogan{
+    clear: both;
+    margin: 30px auto 0;
+    width: 100%;
+    height: 19px;
+    background: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/slogan2020.png) no-repeat center 0;
+}
+.bottom-box .bottom-info .info-links a{
+    display: inline-block;
+}
+.bottom-box .bottom-info .info-links a img{
+    width: auto;
+    height: 28px;
+    margin-left: 0;
+}
+.slogan{
+    clear: both;
+    margin: 30px auto 0;
+    width: 100%;
+    height: 19px;
+    background: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/slogan2020.png) no-repeat center 0;
+}
+.bottom-box .bottom-info .is{
+    display: block;
+    text-align: left;
+    text-indent: -9999em;
+    overflow: hidden;
+}
+.right-box{
+    position: fixed;
+    width: 100px;
+    height: 400px;
+    border: 1px solid #ccc;
+    right: 30px;
+    bottom: 50px;
+    background-color: white;
+    text-align: center;
+}
+
+
+.right-box a{
+    line-height: 100px;
+    
+}
